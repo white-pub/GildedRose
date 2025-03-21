@@ -1,3 +1,11 @@
+"""
+gilded_rose.py
+A. Chen
+Updated: 2025-03-20
+
+Has GildedRose class and Item class
+"""
+
 # -*- coding: utf-8 -*-
 
 class GildedRose(object):
@@ -19,9 +27,10 @@ class GildedRose(object):
                 continue
 
             # decrease/increase quality
-            if item.name == "Aged Brie" and item.quality < 50:
+            if item.name == "Aged Brie":
                 is_normal_item = False
-                item.quality = item.quality + 1
+                if item.quality < 50:
+                    item.quality = item.quality + 1
             
             if item.name == "Backstage passes to a TAFKAL80ETC concert":
                 is_normal_item = False
@@ -51,7 +60,7 @@ class GildedRose(object):
                     item.quality = item.quality - item.quality
                 
                 if item.name == "Conjured Mana Cake":
-                    item.quality = item.quality - self.NORMAL_QUALITY_DECREASE
+                    item.quality = item.quality - 2 * self.NORMAL_QUALITY_DECREASE
 
                 if is_normal_item:
                     item.quality = item.quality - self.NORMAL_QUALITY_DECREASE
